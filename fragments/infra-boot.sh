@@ -41,4 +41,6 @@ then
     docker_set_storage_device $VOLUME_ID
 fi
 
+systemctl start docker
+
 notify_success "OpenShift node has been prepared for running docker."

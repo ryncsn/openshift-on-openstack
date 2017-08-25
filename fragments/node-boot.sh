@@ -46,4 +46,6 @@ then
     docker_set_storage_quota $CONTAINER_QUOTA
 fi
 
+systemctl start docker
+
 notify_success "OpenShift node has been prepared for running docker."
