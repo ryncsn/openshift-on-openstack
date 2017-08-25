@@ -17,6 +17,12 @@ function sudo_enable_from_ssh() {
     sed -i "/requiretty/s/^/#/" /etc/sudoers
 }
 
+function install_and_start_network_manager() {
+    retry yum -y install NetworkManager || notify_failure "could not install NetworkManager"
+    systemctl enable NetworkManager
+    systemctl start NetworkManager
+}
+
 # All hosts must have an external disk device (cinder?) for docker storage
 function docker_set_storage_device() {
     # By default the cinder volume is mapped to virtio-first_20_chars of cinder

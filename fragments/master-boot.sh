@@ -21,8 +21,7 @@ set -o pipefail
 source /usr/local/share/openshift-on-openstack/common_functions.sh
 source /usr/local/share/openshift-on-openstack/common_openshift_functions.sh
 
-
-ifup eth1
+install_and_start_network_manager
 
 sudo_set_secure_path "/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin"
 sudo_enable_from_ssh
